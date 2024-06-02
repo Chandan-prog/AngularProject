@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, computed, input} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -9,12 +9,17 @@ import { Component, Input} from '@angular/core';
 })
 export class UserComponent {
   //@Input is a decorator that signifies what attributes you can pass through app-user
-  @Input({required:true}) avatar!:string  // '!' means conditional and ':' means the type of the value received (typescript)
-  @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
+  // @Input({required:true}) avatar!:string  // '!' means conditional and ':' means the type of the value received (typescript)
+  // @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
 
-  get imagePath(){
-    return 'assets/users/'+this.avatar;
-  }
+  avatar = input.required<string>();
+  name = input.required<string>();
+
+  imagePath = computed(() => 'assets/users/'+this.avatar())
+
+  // get imagePath(){
+  //   return 'assets/users/'+this.avatar;
+  // }
 
   onSelectUser(){}
 }
