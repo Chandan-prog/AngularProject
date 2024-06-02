@@ -1,7 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
-
-const randomIndex = Math.floor(Math.random()*DUMMY_USERS.length);
+import { Component, Input, computed, input} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,27 +8,20 @@ const randomIndex = Math.floor(Math.random()*DUMMY_USERS.length);
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  //selectedUser = DUMMY_USERS[randomIndex];  //this is called public property which is defined so that we can read dynamic data in html file
+  //@Input is a decorator that signifies what attributes you can pass through app-user
+  @Input({required:true}) avatar!:string  // '!' means conditional and ':' means the type of the value received (typescript)
+  @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
 
-  // get imagePath(){
-  //   return 'assets/users/' + this.selectedUser.avatar;
-  // }
 
-  // onSelectUser(){
-     // console.log(this.selectedUser.name);
-  //   const randomIndex = Math.floor(Math.random()*DUMMY_USERS.length);
-  //   this.selectedUser = DUMMY_USERS[randomIndex];
-  // }
+  //signals
+  // avatar = input.required<string>();
+  // name = input.required<string>();
 
-  //Signals are more efficient than zone.js
+  // imagePath = computed(() => 'assets/users/'+this.avatar())
 
-  selectedUser = signal(DUMMY_USERS[randomIndex]);
-
-  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
-
-  onSelectUser(){
-    const randomIndex = Math.floor(Math.random()*DUMMY_USERS.length);
-    this.selectedUser.set(DUMMY_USERS[randomIndex]);
+  get imagePath(){
+    return 'assets/users/'+this.avatar;
   }
-  
+
+  onSelectUser(){}
 }
