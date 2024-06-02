@@ -10,5 +10,5 @@ import { DUMMY_USERS } from './dummy-users';
     imports: [HeaderComponent, UserComponent]
 })
 export class AppComponent {
-    users = DUMMY_USERS;
+    users = DUMMY_USERS;  //defining the property
 }
