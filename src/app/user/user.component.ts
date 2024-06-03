@@ -1,4 +1,4 @@
-import { Component, Input, computed, input} from '@angular/core';
+import { Component, EventEmitter, Input, Output, computed, input} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +11,9 @@ export class UserComponent {
   //@Input is a decorator that signifies what attributes you can pass through app-user
   @Input({required:true}) avatar!:string  // '!' means conditional and ':' means the type of the value received (typescript)
   @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
+  @Input({required:true}) id!: string
 
+  @Output() select = new EventEmitter();
 
   //signals
   // avatar = input.required<string>();
@@ -23,5 +25,7 @@ export class UserComponent {
     return 'assets/users/'+this.avatar;
   }
 
-  onSelectUser(){}
+  onSelectUser(){
+    this.select.emit(this.id)
+  }
 }
