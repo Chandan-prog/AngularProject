@@ -1,5 +1,17 @@
 import { Component, EventEmitter, Input, Output, computed, input} from '@angular/core';
 
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// }
+
+interface User{
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -13,11 +25,7 @@ export class UserComponent {
   // @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
   // @Input({required:true}) id!: string
 
-  @Input({required : true}) user !: {
-    id: string;
-    avatar: string;
-    name: string;
-  }
+  @Input({required : true}) user !: User;
 
   @Output() select = new EventEmitter<string>();  //doing type check of the arg
 
