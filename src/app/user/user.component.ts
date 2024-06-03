@@ -13,7 +13,7 @@ export class UserComponent {
   @Input({required:true}) name!:string   // the required true will ensure that you must pass name attr else it will give an error
   @Input({required:true}) id!: string
 
-  @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter<string>();  //doing type check of the arg
 
   //signals
   // avatar = input.required<string>();
