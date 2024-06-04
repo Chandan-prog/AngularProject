@@ -1,1 +1,14 @@
-<p>restaurant-card works!</p>
+<div class="restaurant-card">
+    <img class="restaurant-logo" [src]="imagePath" alt="{{ restaurant.name }}">
+  
+    <!-- below code is for handling error when you don't get image -->
+  <!-- <img class="restaurant-logo" [src]="getImagePath()" alt="{{ restaurant.name }}" (error)="onImageError($event)"> -->
+    <h3>{{ restaurant.name }}</h3>
+    <p>{{ restaurant.locality }}</p>
+    <p>{{ restaurant.costForTwo }}</p>
+    <p>{{ restaurant.cuisines.join(', ') }}</p>
+    <div class="flex-box">
+    <span>{{ restaurant.avgRatingString }}</span>
+    <span>{{ restaurant.sla.deliveryTime }} mins</span>
+  </div>
+  </div>

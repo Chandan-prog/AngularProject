@@ -1,4 +1,4 @@
-export const restaurants = [
+export const DUMMY_RESTAURANTS = [
   {
     info: {
       id: '51835',

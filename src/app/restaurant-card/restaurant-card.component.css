@@ -1,0 +1,31 @@
+.restaurant-card {
+  height: 100%;
+  background-color: darkgray;
+  padding: 5px;
+  min-height: 533px;
+  text-decoration: none;
+  color: black;
+  border-radius: 7px;
+}
+
+.restaurant-card > h3 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.restaurant-card:hover {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.restaurant-logo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+}

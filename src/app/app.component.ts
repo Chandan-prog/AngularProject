@@ -1,28 +1,22 @@
 import { Component } from '@angular/core';
-import {HeaderComponent} from './header/header.component';
-import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS } from './dummy-users';
-import { TasksComponent } from './tasks/tasks.component';
+import { DUMMY_RESTAURANTS } from './dummy-restaurants';
+import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [HeaderComponent, UserComponent, TasksComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [RestaurantCardComponent],
 })
 export class AppComponent {
-    users = DUMMY_USERS;  //defining the property
-
-    // selectedUserId = 'u1';
-
-    selectedUserId ?: string;
-
-    get selectedUser(){
-        return this.users.find((user) => user.id === this.selectedUserId)
-    }
-
-    onSelectUser(id:string)
-    {
-       this.selectedUserId=id;
-    }
+  restaurants = DUMMY_RESTAURANTS.map((res) => ({
+    id: res.info.id,
+    name: res.info.name,
+    cloudinaryImageId: res.info.cloudinaryImageId,
+    locality: res.info.locality,
+    costForTwo: res.info.costForTwo,
+    cuisines: res.info.cuisines,
+    avgRatingString: res.info.avgRatingString,
+    sla: res.info.sla,
+  }));
 }
