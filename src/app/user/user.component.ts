@@ -26,6 +26,7 @@ export class UserComponent {
   // @Input({required:true}) id!: string
 
   @Input({required : true}) user !: User;
+  @Input({required: true}) selected !: boolean;
 
   @Output() select = new EventEmitter<string>();  //doing type check of the arg
 
