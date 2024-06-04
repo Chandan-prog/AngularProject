@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { DUMMY_RESTAURANTS } from './dummy-restaurants';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RestaurantCardComponent],
+  imports: [RestaurantCardComponent, SearchBarComponent],
 })
 export class AppComponent {
+
   restaurants = DUMMY_RESTAURANTS.map((res) => ({
     id: res.info.id,
     name: res.info.name,
@@ -19,4 +21,12 @@ export class AppComponent {
     avgRatingString: res.info.avgRatingString,
     sla: res.info.sla,
   }));
+
+  filteredRestaurants!: any[];
+
+  onSearch(searchText: string): void {
+    this.filteredRestaurants = this.restaurants.filter(restaurant =>
+      restaurant.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
 }

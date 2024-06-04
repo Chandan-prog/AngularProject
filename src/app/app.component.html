@@ -1,9 +1,10 @@
 <main>
+  <div>
+    <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  </div>
   <div class="restaurant-container">
-    @for (restaurant of restaurants; track restaurant.id) {
-      <app-restaurant-card [restaurant]="restaurant"/>
+    @for (restaurant of filteredRestaurants||restaurants; track restaurant.id) {
+    <app-restaurant-card [restaurant]="restaurant" />
     }
   </div>
 </main>
-
-

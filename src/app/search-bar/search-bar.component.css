@@ -1,0 +1,24 @@
+.search {
+  padding: 10px;
+  margin: 60px;
+}
+
+.search-button{
+  margin: 5px;
+  cursor: pointer;
+}
+  
+  input[type="text"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight border color when focused */
+  }
+  
