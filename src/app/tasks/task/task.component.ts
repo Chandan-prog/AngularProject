@@ -11,8 +11,6 @@ type Task = {
 };
 @Component({
   selector: 'app-task',
-  standalone: true,
-  imports: [DatePipe],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
